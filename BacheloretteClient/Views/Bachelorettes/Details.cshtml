@@ -1,0 +1,16 @@
+@{
+      ViewData["Title"] = "Details";
+}
+
+<ul>
+    <li>ID: @Model.BacheloretteId</li>
+    <li>Name: @Model.Name</li>
+    <li>Age: @Model.Age</li>
+    <li>Job: @Model
+    <li>Hometown: @Model.Hometown</li>
+    <li>Season: @Model.Season</li>
+</ul>
+
+<p>@Html.ActionLink("Edit","Edit", new { id = Model.BacheloretteId})</p>
+<p>@Html.ActionLink("Delete","Delete", new { id = Model.BacheloretteId})</p>
+<p>@Html.ActionLink("Return","Index")</p>

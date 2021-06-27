@@ -1,0 +1,25 @@
+<h1>Create New Bachelorette</h1>
+
+@model BacheloretteClient.Models.Bachelorette
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Age)
+  @Html.TextBoxFor(model => model.Age)
+
+  @Html.LabelFor(model => model.Job)
+  @Html.TextBoxFor(model => model.Job)
+
+  @Html.LabelFor(model => model.Hometown)
+  @Html.TextBoxFor(model => model.Hometown)
+
+  @Html.LabelFor(model => model.Season)
+  @Html.TextBoxFor(model => model.Season)
+
+  <input type="submit" value="Submit" class="btn btn-default" required="true" />
+}
+
+<p>@Html.ActionLink("Return", "Index");</p>

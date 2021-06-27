@@ -1,0 +1,19 @@
+<h1>All Bachelorettes:</h1>
+
+<ol>
+@foreach (Bachelorette bachelorette in Model)
+{
+    <ul>
+        <li>ID: @bachelorette.BacheloretteId</li>
+        <li>Name: @bachelorette.Name</li>
+        <li>Age: @bachelorette.Age</li>
+        <li>Job: @bachelorette.Job</li>
+        <li>Hometown: @bachelorette.Hometown</li>
+        <li>Season: @bachelorette.Season</li>
+    </ul>
+    <a href="/Bachelorettes/Details/@(bachelorette.BacheloretteId)"><p>View Details</p></a>
+    <br>
+}
+</ol>
+
+<p>@Html.ActionLink("Add a bachelorette","Create")</p>

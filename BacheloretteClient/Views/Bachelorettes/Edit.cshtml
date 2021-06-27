@@ -1,0 +1,27 @@
+<h1>Edit Bachelorette Details</h1>
+
+@model BacheloretteClient.Models.Bachelorette
+
+@using (Html.BeginForm("Details","Bachelorettes", new {id = Model.BacheloretteId} ))
+{
+  @Html.HiddenFor(model => model.BacheloretteId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Age)
+  @Html.EditorFor(model => model.Age)
+
+  @Html.LabelFor(model => model.Job)
+  @Html.EditorFor(model => model.Job)
+
+  @Html.LabelFor(model => model.Hometown)
+  @Html.EditorFor(model => model.Hometown)
+
+  @Html.LabelFor(model => model.Season)
+  @Html.EditorFor(model => model.Season)
+
+  <input type="submit" value="Save" class="btn btn-default" required="true" />
+}
+
+<p>@Html.ActionLink("Return to details", "Details", new {id = Model.BacheloretteId})</p>
