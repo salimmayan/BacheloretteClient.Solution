@@ -9,7 +9,7 @@ namespace BacheloretteClient.Controllers
         public IActionResult Index(int id)
         {
             var allContestants = Contestant.GetAll(id);
-            return View(allContestants);
+            return View(allContestants); 
         }
 
     }
