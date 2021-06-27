@@ -16,7 +16,7 @@ namespace BacheloretteClient.Models
 
         public static List<Bachelorette> GetAll()
         {
-            var getAllResult = ApiHelper.GetAll();
+            var getAllResult = ApiHelper.GetAllBachelorette();
             var result = getAllResult.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -25,7 +25,7 @@ namespace BacheloretteClient.Models
         }
         public static Bachelorette GetDetails(int id)
         {
-          var apiCallTask = ApiHelper.Get(id);
+          var apiCallTask = ApiHelper.GetBachelorette(id);
           var result = apiCallTask.Result;
 
           JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -35,16 +35,16 @@ namespace BacheloretteClient.Models
         public static void Post(Bachelorette bachelorette)
         {
           string jsonBach = JsonConvert.SerializeObject(bachelorette);
-          var apiCallTask = ApiHelper.Post(jsonBach);
+          var apiCallTask = ApiHelper.PostBachelorette(jsonBach);
         }
         public static void Put(Bachelorette bachelorette)
         {
           string jsonBach = JsonConvert.SerializeObject(bachelorette);
-          var apiCallTask = ApiHelper.Put(bachelorette.BacheloretteId, jsonBach);
+          var apiCallTask = ApiHelper.PutBachelorette(bachelorette.BacheloretteId, jsonBach);
         }
         public static void Delete(int id)
         {
-          var apiCallTask = ApiHelper.Delete(id);
+          var apiCallTask = ApiHelper.DeleteBachelorette(id);
         }
     }
 }

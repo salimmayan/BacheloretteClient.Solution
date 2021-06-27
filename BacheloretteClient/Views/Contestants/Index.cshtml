@@ -1,0 +1,20 @@
+<h1>All Contestants:</h1>
+
+<ol>
+@foreach (Contestant contestant in Model)
+{
+    <ul>
+        <li>ID: @contestant.ContestantId</li>
+        <li>Name: @contestant.Name</li>
+        <li>Age: @contestant.Age</li>
+        <li>Job: @contestant.Job</li>
+        <li>Hometown: @contestant.Hometown</li>
+        <li>IsEliminated: @contestant.IsEliminated</li>
+        <li>Season: @contestant.Season</li>
+    </ul>
+    <a href="/Contestants/Details/@(contestant.ContestantId)"><p>View Details</p></a>
+    <br>
+}
+</ol>
+
+<p>@Html.ActionLink("Add a Contestant","Create")</p>
