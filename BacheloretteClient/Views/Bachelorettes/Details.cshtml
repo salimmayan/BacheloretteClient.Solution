@@ -11,6 +11,8 @@
     <li>Season: @Model.Season</li>
 </ul>
 
+<p>@Html.ActionLink("See the contestants vying for her heart", "Index", "Contestants",  new {bacheloretteId = Model.BacheloretteId})</p>
+
 <p>@Html.ActionLink("Edit","Edit", new { id = Model.BacheloretteId})</p>
 <p>@Html.ActionLink("Delete","Delete", new { id = Model.BacheloretteId})</p>
 <p>@Html.ActionLink("Return","Index")</p>

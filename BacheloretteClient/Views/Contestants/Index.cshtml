@@ -12,7 +12,8 @@
         <li>IsEliminated: @contestant.IsEliminated</li>
         <li>Season: @contestant.Season</li>
     </ul>
-    <a href="/Contestants/Details/@(contestant.ContestantId)"><p>View Details</p></a>
+    <!-- <a href="/Contestants/Details/@(contestant.ContestantId)"><p>View Details</p></a> -->
+    <p>@Html.ActionLink("View Details", "Details", new { id = contestant.ContestantId, bacheloretteId = contestant.BacheloretteId })</p>
     <br>
 }
 </ol>

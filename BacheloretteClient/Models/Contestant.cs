@@ -25,6 +25,23 @@ namespace BacheloretteClient.Models
             List<Contestant> contenstantsList =JsonConvert.DeserializeObject<List<Contestant>>(jsonResponse.ToString());
             return contenstantsList;
         }
+        public static Contestant GetDetails(int id, int bacheloretteId)
+        {
+            var apiCallTask = ApiHelper.GetContestant(id, bacheloretteId);
+            var result = apiCallTask.Result;
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Contestant thisContestant = JsonConvert.DeserializeObject<Contestant>(jsonResponse.ToString());
+            // thisContestant.BacheloretteId = bacheloretteId;
+            return thisContestant;
+        }
+
+        public static void Post(Contestant newContestant)
+        {
+            string jsonContestant =JsonConvert.SerializeObject(newContestant);
+            var apiCallTask = ApiHelper.PostContestant(jsonContestant, newContestant.BacheloretteId);
+        }
+
+
     }
 }
 

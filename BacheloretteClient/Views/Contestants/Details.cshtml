@@ -1,0 +1,13 @@
+  <ul>
+      <li>ID: @Model.ContestantId</li>
+      <li>Name: @Model.Name</li>
+      <li>Age: @Model.Age</li>
+      <li>Job: @Model.Job</li>
+      <li>Hometown: @Model.Hometown</li>
+      <li>IsEliminated: @Model.IsEliminated</li>
+      <li>Season: @Model.Season</li>
+  </ul>
+
+<p>@Html.ActionLink("Edit","Edit", new { bacheloretteId = Model.BacheloretteId, id = Model.ContestantId })</p>
+<p>@Html.ActionLink("Delete","Delete", new { bacheloretteId = Model.BacheloretteId, id = Model.ContestantId })</p>
+<p>@Html.ActionLink("Return","Index", new { bacheloretteId = Model.BacheloretteId })</p>

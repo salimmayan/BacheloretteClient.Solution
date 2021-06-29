@@ -1,0 +1,30 @@
+<h1>Create new Contestant</h1>
+
+@model BacheloretteClient.Models.Contestant
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Age)
+    @Html.TextBoxFor(model => model.Age)
+
+    @Html.LabelFor(model => model.Job)
+    @Html.TextBoxFor(model => model.Job)
+
+    @Html.LabelFor(model => model.Hometown)
+    @Html.TextBoxFor(model => model.Hometown)
+
+    @Html.LabelFor(model => model.IsEliminated)
+    @Html.EditorFor(model => model.IsEliminated)
+
+    @Html.LabelFor(model => model.Season)
+    @Html.TextBoxFor(model => model.Season)
+
+    @Html.Label("Select Bachelorette")
+    @Html.DropDownList("BacheloretteId")
+
+    <input type="submit" value="Submit" class="btn btn-default" required="true" />
+
+}
