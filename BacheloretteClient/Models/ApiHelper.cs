@@ -47,23 +47,19 @@ namespace BacheloretteClient.Models
         {
             RestClient client = new RestClient($"http://localhost:5000/api/");  //$"bachelorettes/{id}"
             RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants", Method.GET);
-
-          //    RestClient client = new RestClient("http://localhost:5000/api");
-          // RestRequest request = new RestRequest($"bachelorettes/{id}", Method.GET);
-
             var response = await client.ExecuteTaskAsync(request);
             return response.Content;
         }
-        public static async Task<string> GetContestant(int id)
+        public static async Task<string> GetContestant(int id, int bacheloretteId)
         {
-          RestClient client = new RestClient("http://localhost:5000/api/bachelorettes/{bacheloretteId}/");
-          RestRequest request = new RestRequest($"contestants/{id}", Method.GET);
+          RestClient client = new RestClient("http://localhost:5000/api/");
+          RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants/{id}", Method.GET);
           var response = await client.ExecuteTaskAsync(request);
           return response.Content;
         }
         public static async Task PostContestant(string newBachelorette)
         {
-          RestClient client = new RestClient("http://localhost:5000/api/bachelorettes/{bacheloretteId}/");
+          RestClient client = new RestClient("http://localhost:5000/api/");
           RestRequest request = new RestRequest($"contestants/", Method.POST); 
           request.AddHeader("Content-Type", "application/json");
           request.AddJsonBody(newBachelorette);
@@ -71,7 +67,7 @@ namespace BacheloretteClient.Models
         } 
         public static async Task PutContestant(int id, string newBachelorette)
         {
-          RestClient client = new RestClient("http://localhost:5000/api/bachelorettes/{bacheloretteId}/");
+          RestClient client = new RestClient("http://localhost:5000/api/");
           RestRequest request = new RestRequest($"contestants/{id}", Method.PUT); 
           request.AddHeader("Content-Type", "application/json");
           request.AddJsonBody(newBachelorette);
@@ -79,7 +75,7 @@ namespace BacheloretteClient.Models
         }
         public static async Task DeleteContestant(int id)
         {
-          RestClient client = new RestClient("http://localhost:5000/api/bachelorettes/{bacheloretteId}/");
+          RestClient client = new RestClient("http://localhost:5000/api/");
           RestRequest request = new RestRequest($"contestants/{id}", Method.DELETE); 
           request.AddHeader("Content-Type", "application/json");
           var response = await client.ExecuteTaskAsync(request);
