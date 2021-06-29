@@ -34,6 +34,14 @@ namespace BacheloretteClient.Models
             // thisContestant.BacheloretteId = bacheloretteId;
             return thisContestant;
         }
+
+        public static void Post(Contestant newContestant)
+        {
+            string jsonContestant =JsonConvert.SerializeObject(newContestant);
+            var apiCallTask = ApiHelper.PostContestant(jsonContestant, newContestant.BacheloretteId);
+        }
+
+
     }
 }
 
