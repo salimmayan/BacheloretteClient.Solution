@@ -17,9 +17,9 @@ namespace BacheloretteClient.Models
         public int Season { get; set; }
         public int BacheloretteId { get; set; }
 
-        public static List<Contestant> GetAll(int bacheloretteId) 
+        public static List<Contestant> GetAll(int BacheloretteId) 
         {
-            var getAllResult = ApiHelper.GetAllContestant(bacheloretteId);
+            var getAllResult = ApiHelper.GetAllContestant(BacheloretteId);
             var result = getAllResult.Result;
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
             List<Contestant> contenstantsList =JsonConvert.DeserializeObject<List<Contestant>>(jsonResponse.ToString());
@@ -37,7 +37,9 @@ namespace BacheloretteClient.Models
 
         public static void Post(Contestant newContestant)
         {
-            string jsonContestant =JsonConvert.SerializeObject(newContestant);
+        //     string jsonBach = JsonConvert.SerializeObject(bachelorette);
+        //   var apiCallTask = ApiHelper.PostBachelorette(jsonBach);
+          string jsonContestant =JsonConvert.SerializeObject(newContestant);
             var apiCallTask = ApiHelper.PostContestant(jsonContestant, newContestant.BacheloretteId);
         }
 

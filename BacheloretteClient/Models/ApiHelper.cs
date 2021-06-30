@@ -57,7 +57,7 @@ namespace BacheloretteClient.Models
           var response = await client.ExecuteTaskAsync(request);
           return response.Content;
         }
-        public static async Task PostContestant(string newContestant, int bacheloretteId)
+        public static async Task PostContestant(string newContestant, int bacheloretteId)  //helper method tell syou which api end point to go to
         {
           RestClient client = new RestClient("http://localhost:5000/api/");
           RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants", Method.POST); 
