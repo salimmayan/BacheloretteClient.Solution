@@ -17,12 +17,12 @@ namespace BacheloretteClient.Models
         public int Season { get; set; }
         public int BacheloretteId { get; set; }
 
-        public static List<Contestant> GetAll(int BacheloretteId) 
+        public static List<Contestant> GetAll(int BacheloretteId)
         {
             var getAllResult = ApiHelper.GetAllContestant(BacheloretteId);
             var result = getAllResult.Result;
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-            List<Contestant> contenstantsList =JsonConvert.DeserializeObject<List<Contestant>>(jsonResponse.ToString());
+            List<Contestant> contenstantsList = JsonConvert.DeserializeObject<List<Contestant>>(jsonResponse.ToString());
             return contenstantsList;
         }
         public static Contestant GetDetails(int id, int bacheloretteId)
@@ -37,13 +37,19 @@ namespace BacheloretteClient.Models
 
         public static void Post(Contestant newContestant)
         {
-        //     string jsonBach = JsonConvert.SerializeObject(bachelorette);
-        //   var apiCallTask = ApiHelper.PostBachelorette(jsonBach);
-          string jsonContestant =JsonConvert.SerializeObject(newContestant);
+            //     string jsonBach = JsonConvert.SerializeObject(bachelorette);
+            //   var apiCallTask = ApiHelper.PostBachelorette(jsonBach);
+            string jsonContestant = JsonConvert.SerializeObject(newContestant);
             var apiCallTask = ApiHelper.PostContestant(jsonContestant, newContestant.BacheloretteId);
         }
 
-
+        public static void Put(Contestant newContestant)
+        {
+            //     string jsonBach = JsonConvert.SerializeObject(bachelorette);
+            //   var apiCallTask = ApiHelper.PostBachelorette(jsonBach);
+            string jsonContestant = JsonConvert.SerializeObject(newContestant);
+            var apiCallTask = ApiHelper.PutContestant(jsonContestant, newContestant.ContestantId, newContestant.BacheloretteId);
+        }
     }
 }
 

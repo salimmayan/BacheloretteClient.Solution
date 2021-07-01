@@ -65,20 +65,21 @@ namespace BacheloretteClient.Models
           request.AddJsonBody(newContestant);
           var response = await client.ExecuteTaskAsync(request);
         } 
-        // public static async Task PutContestant(string newContestant, int bacheloretteId)
-        // {
-        //   RestClient client = new RestClient("http://localhost:5000/api/");
-        //   RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants/{id}", Method.PUT); 
-        //   request.AddHeader("Content-Type", "application/json");
-        //   request.AddJsonBody(newContestant);
-        //   var response = await client.ExecuteTaskAsync(request);
-        // }
-        public static async Task DeleteContestant(int id, int bacheloretteId)
+        public static async Task PutContestant(string newContestant, int contestantId, int bacheloretteId)
         {
           RestClient client = new RestClient("http://localhost:5000/api/");
-          RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants/{id}", Method.DELETE); 
+          RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants/{contestantId}", Method.PUT); 
           request.AddHeader("Content-Type", "application/json");
+          request.AddJsonBody(newContestant);
           var response = await client.ExecuteTaskAsync(request);
         }
+        
+        // public static async Task DeleteContestant(int id, int bacheloretteId)
+        // {
+        //   RestClient client = new RestClient("http://localhost:5000/api/");
+        //   RestRequest request = new RestRequest($"bachelorettes/{bacheloretteId}/contestants/{id}", Method.DELETE); 
+        //   request.AddHeader("Content-Type", "application/json");
+        //   var response = await client.ExecuteTaskAsync(request);
+        // }
     }
 }
